@@ -1,8 +1,12 @@
 function countLetters(string){
-  var stringToArray = string.split(' ').join('').split('');
+  var stringToArray = string.split(' ').join('').toLowerCase().split('');
   var output = {};
   for (var i = 0; i < stringToArray.length; i++){
-    output[stringToArray[i]] = output[stringToArray[i]]  ? output[stringToArray[i]] + 1 : 1;
+    if (output[stringToArray[i]]){
+      output[stringToArray[i]].push(i);
+    } else {
+      output[stringToArray[i]] = [i];
+    }
   }
   return output;
 }
